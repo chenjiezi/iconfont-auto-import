@@ -7,7 +7,7 @@
     "start": "node ./demo.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "chenjiezi",
   "license": "ISC",
   "dependencies": {
     "compressing": "^1.6.2",
