@@ -1,0 +1,16 @@
+{
+  "name": "auto-import-iconfont",
+  "version": "1.0.0",
+  "description": "auto import iconfont for node",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "compressing": "^1.6.2",
+    "puppeteer": "^15.4.0"
+  }
+}
