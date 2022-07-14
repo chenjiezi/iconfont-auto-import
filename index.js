@@ -112,13 +112,13 @@ class AutoImportIconfont {
             this.operationFile();
           })
           .catch((err) => {
-            console.error('压缩包解压失败：' + err.toString());
+            console.error('压缩包解压失败：' + err.message);
           });
 
         await this.browser.close();
       });
-    }).on('error', (e) => {
-      console.error(`下载图标资源压缩包失败: ${e.message}`);
+    }).on('error', (err) => {
+      console.error('下载图标资源压缩包失败：' + err.message);
     });
   }
 
@@ -160,8 +160,8 @@ class AutoImportIconfont {
       }
       console.log('图标资源更新完毕');
       console.timeEnd('Total');
-    } catch (e) {
-      throw console.error('operationFile=>' + e)
+    } catch (err) {
+      throw console.error('operationFile=>' + err.message)
     }
   }
 
@@ -178,8 +178,8 @@ class AutoImportIconfont {
     if (passwordErrorLabel) {
       passwordErrText = await this.page.$eval('#password-error', el => el.textContent);
     }
-    useridErrText && console.log('iconfont：', useridErrText);
-    passwordErrText && console.log('iconfont：', passwordErrText);
+    useridErrText && console.log('username：', useridErrText);
+    passwordErrText && console.log('password：', passwordErrText);
     if (useridErrText || passwordErrText) {
       await this.browser.close();
     }
