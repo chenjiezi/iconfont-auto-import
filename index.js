@@ -17,11 +17,12 @@ class AutoImportIconfont {
     this.username = config.username || '';
     this.password = config.password || '';
     this.projectId = config.projectId || '';
-    this.basePath = config.basePath || './';
+    this.basePath = config.basePath || path.resolve();
     this.iconfontFolder = config.iconfontFolder || 'iconfont';
     this.retainFileList = config.retainFileList || [];
     this.modifyFileList = config.modifyFileList || [];
     this.saveCompressedPackage = config.saveCompressedPackage || false;
+    this.compressedPackagePath = config.compressedPackagePath || path.resolve();
     this.compressedPackageFileName = config.compressedPackageFileName || 'download';
     this.puppeteerOptions = config.puppeteerOptions || {};
 
@@ -99,7 +100,7 @@ class AutoImportIconfont {
 
         // 保留压缩包
         if (this.saveCompressedPackage) {
-          const compressedPackagePath = path.join(this.basePath, this.compressedPackageFileName + '.zip');
+          const compressedPackagePath = path.join(this.compressedPackagePath, this.compressedPackageFileName + '.zip');
           fsPromises.writeFile(compressedPackagePath, content);
           console.log('压缩包保存路径：', compressedPackagePath);
         }
@@ -214,4 +215,3 @@ class AutoImportIconfont {
 }
 
 module.exports = AutoImportIconfont;
-
