@@ -3,15 +3,16 @@
  * @Author: chenjz
  * @Date: 2022-07-14 19:38:30
  * @LastEditors: chenjz
- * @LastEditTime: 2022-07-14 20:30:04
+ * @LastEditTime: 2022-07-16 11:38:52
  */
 const AutoImportIconfont = require('./index');
+const path = require('path');
 
 const app = new AutoImportIconfont({
   username: 'your username', // 登录账号
   password: 'your password', // 登录密码
   projectId: 'your projectId', // 项目id
-  basePath: './static',
+  basePath: path.join(__dirname, 'static'),
   iconfontFolder: 'iconfont',
   // 保留的文件
   retainFileList: [
@@ -33,6 +34,7 @@ const app = new AutoImportIconfont({
     }
   ],
   saveCompressedPackage: true,
+  compressedPackagePath: path.join(__dirname, 'static'),
   compressedPackageFileName: 'download',
   puppeteerOptions: {
     headless: true
