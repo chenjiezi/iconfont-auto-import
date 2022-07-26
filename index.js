@@ -11,7 +11,7 @@ const LOGIN_URL = 'https://www.iconfont.cn/login';
 const LOGIN_API = 'https://www.iconfont.cn/api/account/login.json';
 const DOWNLOAD_URL = 'https://www.iconfont.cn/api/project/download.zip';
 
-class AutoImportIconfont {
+class IconfontAutoImport {
   constructor(config = {}) {
     this._config = config;
     this.username = config.username || '';
@@ -33,7 +33,6 @@ class AutoImportIconfont {
 
   async start() {
     try {
-      console.time('Total');
       console.log('开始自动导入图标资源');
       this.browser = await puppeteer.launch(this.puppeteerOptions);
       this.page = await this.browser.newPage();
@@ -129,7 +128,7 @@ class AutoImportIconfont {
       const files = await fsPromises.readdir(this.basePath);
       const primaryName = files.find(f => f.startsWith(`font_${this.projectId}`));
       const primaryPath = path.join(this.basePath, primaryName);
-      let iconDirPath = path.join(this.basePath, this.iconfontFolder);
+      const iconDirPath = path.join(this.basePath, this.iconfontFolder);
 
       // 删除原有存储图标资源的文件夹
       await fsPromises.rmdir(iconDirPath, { recursive: true });
@@ -138,29 +137,33 @@ class AutoImportIconfont {
 
       // 删除不保留的文件
       if (this.retainFileList.length) {
-        console.log('保留文件：', this.retainFileList);
-
         const iconFiles = await fsPromises.readdir(iconDirPath);
         const delFiles = iconFiles
           .filter(f => !this.retainFileList.includes(f))
           .map(f => fsPromises.rm(path.join(iconDirPath, f)));
 
         await Promise.all(delFiles);
+
         this.fileList = await fsPromises.readdir(iconDirPath);
+
+        console.log('保留文件：', this.fileList);
       }
 
       // 修改文件内容
       if (this.modifyFileList.length) {
         const mlist = this.modifyFileList.filter(item => this.fileList.includes(item.fileName));
+
         console.log('对以下文件内容进行修改：', mlist.map(m => m.fileName));
+
         mlist.forEach(async (m) => {
           const p = path.join(iconDirPath, m.fileName);
           const content = await fsPromises.readFile(p, 'utf-8');
           m.update && await fsPromises.writeFile(p, m.update(content));
         })
       }
+
       console.log('图标资源更新完毕');
-      console.timeEnd('Total');
+
     } catch (err) {
       throw console.error('operationFile=>' + err.message)
     }
@@ -214,4 +217,4 @@ class AutoImportIconfont {
 
 }
 
-module.exports = AutoImportIconfont;
+module.exports = IconfontAutoImport;
