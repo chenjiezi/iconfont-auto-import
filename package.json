@@ -1,7 +1,7 @@
 {
-  "name": "auto-import-iconfont",
-  "version": "1.0.2",
-  "description": "auto import iconfont for node",
+  "name": "iconfont-auto-import",
+  "version": "1.0.0",
+  "description": "iconfont auto import for node",
   "main": "index.js",
   "scripts": {
     "start": "node ./example.js"
