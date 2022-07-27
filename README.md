@@ -11,7 +11,13 @@ npm install iconfont-auto-import
 
 ### 基本用法
 
-在项目根路径下，创建一个 iconfont-auto-import.js 文件。username 和 password 为你的阿里巴巴矢量库账号密码。projectId（图标项目的id）获取方式：打开阿里巴巴矢量库->资源管理->我的项目->打开对应的图标项目->浏览器输入栏url的参数中有projectId=XXXX。如果你想将下载的图标资源放置在项目目录的src/static/iconfont下，那么就跟下面的代码这么设置 bashPath 和 iconfontFolder，如果不设置这两个属性，默认下载的的图标资源放置在项目根目录下的iconfont文件里。
+- 第一步：安装 iconfont-auto-import 插件；
+- 第二步：在你的项目代码根目录下，创建一个 iconfont-auto-import.js 文件；
+- 第三步：参照示例代码配置好参数，在命令行执行 node iconfont-auto-import.js，即可自动导入阿里巴巴矢量库图标文件。
+
+projectId（图标项目的id）获取方式：打开阿里巴巴矢量库->资源管理->我的项目->打开对应的图标项目->浏览器上的url参数中有projectId=XXXX。
+
+如果你想将下载的图标资源放置到指定位置，你可以跟示例代码一样设置 bashPath 和 iconfontFolder，如果不设置这两个字段，默认下载的的图标资源放置在项目根目录下的iconfont文件里。
 
 ```javascript
 // iconfont-auto-import.js
@@ -19,19 +25,19 @@ const IconfontAutoImport = require('iconfont-auto-import');
 const path = require('path');
 
 const app = new IconfontAutoImport({
-  username: 'your username', // 登录账号
-  password: 'your password', // 登录密码
+  username: 'your username', // 阿里巴巴矢量库登录账号
+  password: 'your password', // 密码
   projectId: 'your projectId', // 项目id
   basePath: path.resolve('src/static'),
-  iconfontFolder: 'iconfont', // 每次导入新的图标会将原有的 iconfontFolder 文件夹移除
+  iconfontFolder: 'iconfont', // /src/static/iconfont
 });
 
 app.start();
 ```
+ps: 每次导入新的图标会将原有的 iconfontFolder 指定的文件夹移除
+### 设置保留文件
 
-### 设置文件保留
-
-下载下来的图标资源，可能存在一些你用不到的图标文件。那么你可以通过设置 retainFileList，只保留你想要的图标资源文件。例如下面代码所示，只保留想要的图标资源文件。
+下载下来的图标资源，可能存在一些你用不到的图标文件。那么你可以通过设置 retainFileList，只保留你想要的图标资源文件。例如下面代码所示
 
 ```javascript
 // iconfont-auto-import.js
@@ -53,7 +59,7 @@ app.start();
 
 ### 修改文件内容
 
-如果你想对图标资源的文件内容进行修改，那么使用 modifyFileList。modifyFileList 是一个数组，数组元素对象有两个属性 fileName 和 update。fileName指定文件名，update 函数接受一个参数 content, content 为文件内容字符串。可以通过正则表达式等方式对 content 进行修改并返回。
+如果你想对图标资源的文件内容进行修改，那么使用 modifyFileList。数组元素对象有两个属性 fileName 和 update。fileName指定文件名，update 函数接受一个参数 content, content 为文件内容字符串。可以通过正则表达式等方式对 content 进行修改并返回。
 
 ```javascript
 // iconfont-auto-import.js
@@ -97,7 +103,7 @@ app.start();
 
 因为 iconfont-auto-import 插件使用到了 puppeteer 插件，可以通过 puppeteerOptions 字段可以配置 puppeteer。
 
-想知道更多puppeteer配置，请参考官方文档：http://www.puppeteerjs.com/#?product=Puppeteer&version=v15.4.0&show=api-pageselector-1
+想知道更多puppeteer配置，请参考官方文档：http://www.puppeteerjs.com/#?product=Puppeteer&version=v15.4.0
 
 ```javascript
 // iconfont-auto-import.js
@@ -106,7 +112,7 @@ const IconfontAutoImport = require('iconfont-auto-import');
 const app = new IconfontAutoImport({
   ...,
   puppeteerOptions: {
-    headless: false // 设置关闭无头
+    headless: false // 关闭无头
   }
 });
 
