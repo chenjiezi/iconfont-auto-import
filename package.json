@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "iconfont auto import for node",
   "main": "index.js",
+  "repository": "git@github.com:chenjiezi/iconfont-auto-import.git",
   "scripts": {
     "start": "node ./example.js"
   },
