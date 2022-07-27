@@ -1,5 +1,5 @@
 /**
- * auto import iconfont for node
+ * iconfont auto import for node
  */
 const puppeteer = require("puppeteer");
 const path = require("path");
