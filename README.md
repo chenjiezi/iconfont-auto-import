@@ -26,7 +26,7 @@ const path = require('path');
 
 const app = new IconfontAutoImport({
   username: 'your username', // 阿里巴巴矢量库登录账号
-  password: 'your password', // 密码
+  password: 'your password', // 阿里巴巴矢量库登录密码
   projectId: 'your projectId', // 项目id
   basePath: path.resolve('src/static'),
   iconfontFolder: 'iconfont', // /src/static/iconfont
