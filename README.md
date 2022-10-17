@@ -15,10 +15,6 @@ npm install iconfont-auto-import
 - 第二步：在你的项目代码根目录下，创建一个 iconfont-auto-import.js 文件；
 - 第三步：参照示例代码配置好参数，在命令行执行 node iconfont-auto-import.js，即可自动导入阿里巴巴矢量库图标文件。
 
-projectId（图标项目的id）获取方式：打开阿里巴巴矢量库->资源管理->我的项目->打开对应的图标项目->浏览器上的url参数中有projectId=XXXX。
-
-如果你想将下载的图标资源放置到指定位置，你可以跟示例代码一样设置 bashPath 和 iconfontFolder，如果不设置这两个字段，默认下载的的图标资源放置在项目根目录下的iconfont文件里。
-
 ```javascript
 // iconfont-auto-import.js
 const IconfontAutoImport = require('iconfont-auto-import');
@@ -35,6 +31,11 @@ const app = new IconfontAutoImport({
 app.start();
 ```
 ps: 每次导入新的图标会将原有的 iconfontFolder 指定的文件夹移除
+
+projectId（图标项目的id）获取方式：打开阿里巴巴矢量库->资源管理->我的项目->打开对应的图标项目->浏览器上的url参数中有projectId=XXXX。
+
+如果你想将下载的图标资源放置到指定位置，你可以跟示例代码一样设置 bashPath 和 iconfontFolder，如果不设置这两个字段，默认下载的的图标资源放置在项目根目录下的iconfont文件里。
+
 ### 设置保留文件
 
 下载下来的图标资源，可能存在一些你用不到的图标文件。那么你可以通过设置 retainFileList，只保留你想要的图标资源文件。例如下面代码所示
