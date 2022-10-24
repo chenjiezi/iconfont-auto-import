@@ -4,7 +4,7 @@
 
 ## Install
 ```
-npm install iconfont-auto-import
+npm install iconfont-auto-import --D
 ```
 
 ## Usage
