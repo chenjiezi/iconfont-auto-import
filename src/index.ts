@@ -163,7 +163,7 @@ export default class IconfontAutoImport {
       const iconDirPath = path.join(this.basePath, this.iconfontFolder)
 
       // 删除原有存储图标资源的文件夹
-      await fsPromises.rmdir(iconDirPath, { recursive: true })
+      await fsPromises.rm(iconDirPath, { recursive: true })
       // 新图标资源文件夹重命名
       await fsPromises.rename(primaryPath, iconDirPath)
 
