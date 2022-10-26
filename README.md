@@ -2,6 +2,8 @@
 
 基于puppeteer自动导入阿里巴巴矢量库的项目图标。iconfont.cn
 
+![效果](./d759o-tggzr.gif)
+
 ## Install
 ```
 npm install iconfont-auto-import -D
@@ -17,7 +19,7 @@ npm install iconfont-auto-import -D
 
 ```javascript
 // iconfont-auto-import.js
-const IconfontAutoImport = require('iconfont-auto-import');
+const IconfontAutoImport = require('iconfont-auto-import').default;
 const path = require('path');
 
 const app = new IconfontAutoImport({
@@ -42,7 +44,7 @@ projectId（图标项目的id）获取方式：打开阿里巴巴矢量库->资�
 
 ```javascript
 // iconfont-auto-import.js
-const IconfontAutoImport = require('iconfont-auto-import');
+const IconfontAutoImport = require('iconfont-auto-import').default;
 
 const app = new IconfontAutoImport({
   ...,
@@ -64,7 +66,7 @@ app.start();
 
 ```javascript
 // iconfont-auto-import.js
-const IconfontAutoImport = require('iconfont-auto-import');
+const IconfontAutoImport = require('iconfont-auto-import').default;
 
 const app = new IconfontAutoImport({
   ...,
@@ -87,7 +89,7 @@ app.start();
 
 ```javascript
 // iconfont-auto-import.js
-const IconfontAutoImport = require('iconfont-auto-import');
+const IconfontAutoImport = require('iconfont-auto-import').default;
 const path = require('path');
 
 const app = new IconfontAutoImport({
@@ -108,7 +110,7 @@ app.start();
 
 ```javascript
 // iconfont-auto-import.js
-const IconfontAutoImport = require('iconfont-auto-import');
+const IconfontAutoImport = require('iconfont-auto-import').default;
 
 const app = new IconfontAutoImport({
   ...,
