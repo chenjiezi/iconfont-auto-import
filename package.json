@@ -1,17 +1,38 @@
 {
   "name": "iconfont-auto-import",
   "version": "1.0.0",
-  "description": "iconfont auto import for node",
-  "main": "index.js",
-  "repository": "git@github.com:chenjiezi/iconfont-auto-import.git",
-  "scripts": {
-    "start": "node ./example.js"
-  },
-  "keywords": [],
-  "author": "chenjiezi",
+  "description": "iconfont auto import based on puppeteer",
+  "author": "chenjiezi <892774940@qq.com>",
   "license": "ISC",
+  "homepage": "https://github.com/chenjiezi/iconfont-auto-import#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chenjiezi/iconfont-auto-import.git"
+  },
+  "bugs": {
+    "url": "https://github.com/chenjiezi/iconfont-auto-import/issues"
+  },
+  "keywords": [
+    "puppeteer",
+    "iconfont",
+    "nodejs"
+  ],
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "rm -rf dist && tsc",
+    "ver": "npm version patch",
+    "pub": "npm run build && npm run ver && npm publish",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
   "dependencies": {
     "compressing": "^1.6.2",
     "puppeteer": "^15.4.0"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^0.27.0",
+    "@types/node": "^18.11.5",
+    "eslint": "^8.26.0",
+    "typescript": "^4.8.4"
   }
 }
