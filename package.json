@@ -1,6 +1,6 @@
 {
   "name": "iconfont-auto-import",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "iconfont auto import based on puppeteer",
   "author": "chenjiezi <892774940@qq.com>",
   "license": "ISC",
