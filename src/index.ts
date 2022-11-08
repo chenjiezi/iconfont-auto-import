@@ -1,7 +1,7 @@
 import path from 'path'
 import https from 'https'
 import fsPromises from 'fs/promises'
-import Puppeteer from 'Puppeteer'
+import Puppeteer from 'puppeteer'
 import compressing from 'compressing'
 
 const LOGIN_URL = 'https://www.iconfont.cn/login'
