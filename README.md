@@ -2,7 +2,7 @@
 
 基于puppeteer自动导入阿里巴巴矢量库的项目图标。iconfont.cn
 
-![效果](./d759o-tggzr.gif)
+![效果](./demo.gif)
 
 ## Install
 ```
