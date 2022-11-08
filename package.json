@@ -17,11 +17,14 @@
     "iconfont",
     "nodejs"
   ],
+  "files": [
+    "dist",
+    "demo.gif"
+  ],
   "main": "dist/index.js",
   "scripts": {
     "build": "rm -rf dist && tsc",
-    "ver": "npm version patch",
-    "pub": "npm run build && npm run ver && npm publish",
+    "release": "bumpp",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
   },
@@ -32,6 +35,7 @@
   "devDependencies": {
     "@antfu/eslint-config": "^0.27.0",
     "@types/node": "^18.11.5",
+    "bumpp": "^8.2.1",
     "eslint": "^8.26.0",
     "typescript": "^4.8.4"
   }
